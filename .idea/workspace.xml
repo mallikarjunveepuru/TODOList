@@ -79,7 +79,7 @@
         <entry file="file://$PROJECT_DIR$/README.rdoc">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.29579833" vertical-offset="0" max-vertical-offset="595">
-              <caret line="8" column="14" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
+              <caret line="8" column="20" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -542,7 +542,13 @@
       <option name="project" value="LOCAL" />
       <updated>1458657548923</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Initial commit.">
+      <created>1458657914122</created>
+      <option name="number" value="00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1458657914122</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -587,7 +593,8 @@
       <TodoPanelSettings />
     </option>
     <MESSAGE value="Create and Show options." />
-    <option name="LAST_COMMIT_MESSAGE" value="Create and Show options." />
+    <MESSAGE value="Initial commit." />
+    <option name="LAST_COMMIT_MESSAGE" value="Initial commit." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -908,7 +915,7 @@
     <entry file="file://$PROJECT_DIR$/README.rdoc">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.29579833" vertical-offset="0" max-vertical-offset="595">
-          <caret line="8" column="14" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
+          <caret line="8" column="20" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
           <folding />
         </state>
       </provider>
