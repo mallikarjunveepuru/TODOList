@@ -51,5 +51,3 @@ class ItemsController < ApplicationController
 
 
 end
-
-#На видео: 24:00 / update, delete
