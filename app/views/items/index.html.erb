@@ -1,8 +1,12 @@
-<h1>Flutty say Yay!</h1>
+<div class="jumbotron">
+  <div class="container">
+  <h1>Flutty say Yay!</h1>
+  <% @items.each do |item| %>
+      <h2><%= link_to item.title, item %></h2>
+      <p><%= item.description %></p>
+  <% end %>
+  </div>
+</div>
 
-<% @items.each do |item| %>
-    <h2><%= link_to item.title, item %></h2>
-    <p><%= item.description %></p>
-<% end %>
 
-<%= link_to 'Create new task', new_item_path %>
+
