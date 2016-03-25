@@ -11,7 +11,6 @@ class ItemsController < ApplicationController
   end
 
   def show
-    #private find_item
   end
 
   def create
