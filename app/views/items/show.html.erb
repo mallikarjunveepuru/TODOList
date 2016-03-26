@@ -1,6 +1,10 @@
-<h2><%= @item.title %></h2>
-<p><%= @item.description  %></p>
+<div class="jumbotron">
+  <div class="container">
+    <h2><%= @item.title %></h2>
+    <p><%= @item.description  %></p>
 
-<%= link_to 'Back', root_path %>
-<%= link_to 'Edit task', edit_item_path(@item) %>
-<%= link_to 'Delete task', item_path(@item), method: :delete, data: { confirm: "Delete this task?" } %>
+    <%= link_to 'Back', root_path %>
+    <%= link_to 'Edit task', edit_item_path(@item) %>
+    <%#= link_to 'Delete task', item_path(@item), method: :delete, data: { confirm: "Delete this task?" } %>
+  </div>
+</div>

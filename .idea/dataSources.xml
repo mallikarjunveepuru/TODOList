@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="4241059317">
+  <component name="DataSourceManagerImpl" format="xml" hash="446274808">
     <data-source source="LOCAL" name="Rails TODOList: development" uuid="4c4d4be3-8cb0-40bb-a851-4d99feacf6b0">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
