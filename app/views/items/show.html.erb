@@ -1,10 +1,21 @@
-<div class="jumbotron">
-  <div class="container">
-    <h2><%= @item.title %></h2>
-    <p><%= @item.description  %></p>
+<div class="col-md-6 col-md-offset-3">
+    <div class="row item">
+      <div class="col-md-8">
+        <h2 class="item-title"><%= @item.title %></h2>
+        <p class="item-desc item-sub-title"><%= @item.description  %></p>
+        <p style="opacity: 0.2;" class="item-desc item-sub-title">Created <%= time_ago_in_words(@item.created_at) %> ago</p>
+      </div>
 
-    <%= link_to 'Back', root_path %>
-    <%= link_to 'Edit task', edit_item_path(@item) %>
-    <%#= link_to 'Delete task', item_path(@item), method: :delete, data: { confirm: "Delete this task?" } %>
-  </div>
+      <div class="col-md-2">
+        <p><%= link_to root_path, method: :get do %></p>
+        <i class="fa fa-lg fa-check">Back</i>
+        <% end %>
+      </div>
+
+      <div class="col-md-2">
+        <p><%= link_to edit_item_path(@item), method: :get do %></p>
+        <i class="fa fa-lg fa-wrench">Edit</i>
+        <% end %>
+      </div>
+    </div>
 </div>

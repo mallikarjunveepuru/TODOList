@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>TODOList</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -21,6 +22,8 @@
         <li><%= link_to 'New here?', new_user_registration_path%></li>
       <% end %>
     </ul>
+    <p style="opacity: 0.3;" class="notice navbar-text navbar-center"><%= notice %></p>
+    <p style="opacity: 0.3;" class="alert navbar-text navbar-center"><%= alert %></p>
     <% if user_signed_in? %>
         <%= link_to 'Create new task!', new_item_path, class: "navbar-text navbar-link navbar-right" %>
     <% end %>
@@ -28,10 +31,9 @@
   </div>
 </nav>
 
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
-
-<%= yield %>
+<div class="container">
+    <%= yield %>
+</div>
 
 </body>
 </html>
