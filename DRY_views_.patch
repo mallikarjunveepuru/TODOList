@@ -1,0 +1,124 @@
+Index: app/views/items/index.html.erb
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/views/items/index.html.erb	(revision b2d3e98aa404ddcd2ce03c7538c38726a6993ef5)
++++ app/views/items/index.html.erb	(revision )
+@@ -1,67 +1,9 @@
+ <% if user_signed_in? %>
+-
+-    <div class="col-md-6 col-md-offset-3">
++  <div class="col-md-6 col-md-offset-3">
+-
+-      <% @items.each do |item| %>
+-
+-          <div class="index-wrapper">
++    <div class="index-wrapper">
+-
+-            <% if item.completed? %>
+-
+-                <div class="row item">
+-
+-                  <div class="col-md-8">
+-                      <h2 style="opacity: 0.2;" class="item-title" ><strike><%= link_to item.title, item %></strike></h2>
+-                      <p style="opacity: 0.2;" class="item-desc item-sub-title"><%= item.description %></p>
+-                      <p style="opacity: 0.2;" class="item-desc item-sub-title">Closed <%= time_ago_in_words(item.completed_at) %> ago</p>
++      <%= render @items %>
+-                  </div>
++    </div>
+-
+-                  <div class="col-md-2">
+-                      <p><%= link_to complete_item_path(item), method: :patch  do %></p>
+-                        <i class="fa fa-lg fa-check">Done</i>
+-                      <% end %>
+-                  </div>
++  </div>
+-
+-                  <div class="col-md-2">
+-                      <p><%= link_to item, method: :delete, data: { confirm: "Delete this task?" } do %></p>
+-                        <i class="fa fa-lg fa-trash">Delete</i>
+-                      <% end %>
+-                  </div>
+-
+-                </div>
+-
+-            <% else %>
+-
+-                <div class="row item">
+-
+-                  <div class="col-md-8">
+-                      <h2 class="item-title"><%= link_to item.title, item %></strike></h2>
+-                      <p class="item-desc item-sub-title"><%= item.description %></p>
+-                      <p style="opacity: 0.2;" class="item-desc item-sub-title">Created <%= time_ago_in_words(item.created_at) %> ago</p>
+-                  </div>
+-
+-                  <div class="col-md-2">
+-                      <p><%= link_to complete_item_path(item), method: :patch  do %></p>
+-                         <i class="fa fa-lg fa-check">Done</i>
+-                      <% end %>
+-                  </div>
+-
+-                  <div class="col-md-2">
+-                      <p><%= link_to item, method: :delete, data: { confirm: "Delete this task?" } do %></p>
+-                         <i class="fa fa-lg fa-trash">Delete</i>
+-                      <% end %>
+-                  </div>
+-
+-                <% end %>
+-
+-                </div>
+-
+-            <% end %>
+-
+-        </div>
+-
+-    </div>
+-
+ <% else %>
+  <%= render 'layouts/static_landing_page' %>
+ <% end %>
+Index: app/views/items/_item.html.erb
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/views/items/_item.html.erb	(revision )
++++ app/views/items/_item.html.erb	(revision )
+@@ -0,0 +1,23 @@
++<div class="row item">
++  <div class="col-md-8">
++    <h2 style="<%= 'opacity: 0.2;' if item.completed? %>" class="item-title" ><%= item.completed? ? sanitize("<del>#{link_to item.title, item}</del>") : link_to(item.title, item) %></h2>
++    <p style="<%= 'opacity: 0.2;' if item.completed? %>" class="item-desc item-sub-title"><%= item.description %></p>
++    <p style="opacity: 0.2;" class="item-desc item-sub-title"><%= item.completed? ? "Closed #{time_ago_in_words(item.completed_at)} ago" : "Created #{time_ago_in_words(item.created_at)} ago" %></p>
++  </div>
++
++  <div class="col-md-2">
++    <p><%= link_to complete_item_path(item), method: :patch do %></p>
++      <i class="fa fa-lg fa-check">Done</i>
++    <% end %>
++  </div>
++
++  <div class="col-md-2">
++    <p><%= link_to item, method: :delete, data: { confirm: 'Delete this task?' } do %></p>
++      <i class="fa fa-lg fa-trash">Delete</i>
++    <% end %>
++  </div>
++</div>
++
++
++
++
+Index: app/controllers/items_controller.rb
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/controllers/items_controller.rb	(revision b2d3e98aa404ddcd2ce03c7538c38726a6993ef5)
++++ app/controllers/items_controller.rb	(revision )
+@@ -1,4 +1,5 @@
+ class ItemsController < ApplicationController
++  include ActionView::Helpers::SanitizeHelper
+ 
+   before_action :show_item, only: [:show, :edit, :update, :destroy]
+ 
