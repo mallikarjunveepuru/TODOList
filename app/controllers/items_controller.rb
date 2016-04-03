@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  include ActionView::Helpers::SanitizeHelper
 
   before_action :show_item, only: [:show, :edit, :update, :destroy]
 
