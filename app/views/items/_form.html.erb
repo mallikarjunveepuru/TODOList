@@ -1,6 +1,10 @@
 <%= simple_form_for @item do |f| %>
     <%= f.input :title, label: 'Item' %>
     <%= f.input :description %>
-
+    <h5><b>Priority:</b></h5>
+    <div class="col-md-8">
+    <%= f.collection_radio_buttons :priority_id, [[3, 'Low'] ,[2, 'Middle'], [1, 'High']],  :first, :last  %>
+    </div>
+    <p></p>
     <%= f.button :submit %>
 <% end %>

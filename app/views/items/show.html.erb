@@ -4,6 +4,7 @@
                 <div class="col-md-8">
                   <h2 style="<%= 'opacity: 0.2;' if @item.completed? %>" class="item-title" ><%= @item.completed? ? sanitize("<del>#{ @item.title }</del>") : @item.title %></h2>
                   <p style="<%= 'opacity: 0.2;' if @item.completed? %>" class="item-desc item-sub-title"><%= @item.description %></p>
+                  <p style="<%= 'opacity: 0.2;' if @item.completed? %>" >Priority: <%=  @item.priority_id %>
                   <p style="opacity: 0.2;" class="item-desc item-sub-title"><%= @item.completed? ? "Closed #{time_ago_in_words(@item.completed_at)} ago" : "Created #{time_ago_in_words(@item.created_at)} ago" %></p>
                 </div>
 

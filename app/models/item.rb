@@ -1,6 +1,6 @@
 class Item < ActiveRecord::Base
   belongs_to :user
-  has_one :priority
+  belongs_to :priority
 
   def completed?
     !completed_at.blank?
