@@ -5,7 +5,7 @@ class ItemsController < ApplicationController
 
   def index
     if user_signed_in?
-    @items = Item.where(:user_id => current_user.id).order("created_at DESC")
+    @items = Item.where(:user_id => current_user.id).order("completed_at").order("priority_id DESC")
     end
   end
 
@@ -52,6 +52,7 @@ class ItemsController < ApplicationController
     def item_params
       params.require(:item).permit(:title, :description, :priority_id)
     end
+
 
     def show_item
       @item = Item.find(params[:id])
