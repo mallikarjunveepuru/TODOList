@@ -3,8 +3,10 @@
     <%= f.input :description %>
 
     <h5><b>Priority:</b></h5>
-    <div class="col-md-3">
-        <%= f.collection_radio_buttons :priority_id, [[1, 'Low']  ,[2, 'Middle'], [3, 'High']],  :first, :last, checked: 2 %>
+    <div class="col-md-2">
+      <div class="row">
+       <%= f.collection_radio_buttons :priority_id, [[1, 'Low']  ,[2, 'Middle'], [3, 'High']],  :first, :last, checked: 2 %>
+      </div>
     </div>
 
     <%= f.button :submit %>
