@@ -6,4 +6,4 @@ Rails Web-application
 
 This project is educational and intended for mastering Ruby on Rails.
 
-No further information is available at this time.
+18.05.2016 - New features will be coming soon.
