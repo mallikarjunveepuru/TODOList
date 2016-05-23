@@ -1,2 +1,1 @@
-class Priority < ActiveRecord::Base
-end
+class Priority < ActiveRecord::Base; end

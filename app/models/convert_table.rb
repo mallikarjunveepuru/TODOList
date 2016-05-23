@@ -1,2 +1,1 @@
-class ConvertTable < ActiveRecord::Base
-end
+class ConvertTable < ActiveRecord::Base; end

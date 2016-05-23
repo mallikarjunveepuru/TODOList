@@ -1,38 +1,36 @@
 <% if user_signed_in? %>
-    <div class="col-md-6 col-md-offset-3">
-      <div style="border-bottom-color: <%=  @item.priority.color %>;"
-           <% if @item.completed? %> class="row item" <% else %>
-           <% if @item.priority.priority_level == 3 %> class="row item alert alert-success" <% end %>
-           <% if @item.priority.priority_level == 2 %> class="row item alert alert-warning" <% end %>
-           <% if @item.priority.priority_level == 1 %> class="row item alert alert-danger" <% end %>
-           <% end %>
-           >
-                <div class="col-md-8">
-                  <h2 style="<%= 'opacity: 0.2;' if @item.completed? %>" class="item-title" ><%= @item.completed? ? sanitize("<del>#{ @item.title }</del>") : @item.title %></h2>
-                  <p style="<%= 'opacity: 0.2;' if @item.completed? %>" class="item-desc item-sub-title"><%= @item.description %></p>
-                  <p style="<%= 'opacity: 0.2;' if @item.completed? %>" >Priority: <%=  @item.priority.name %>
-                  <p style="opacity: 0.2;" class="item-desc item-sub-title"><%= @item.completed? ? "Closed #{time_ago_in_words(@item.completed_at)} ago" : "Created #{time_ago_in_words(@item.created_at)} ago" %></p>
-                </div>
-
-                <div class="col-md-2">
-                  <p><%= link_to root_path, method: :get do %></p>
-                        <i class="fa fa-lg fa-reply">Back</i>
-                    <% end %>
-                    </div>
-
-                <div class="col-md-2">
-                  <% if @item.completed? %>
-                    <p><%= link_to @item, method: :delete, data: { confirm: 'Delete this task?' } do %></p>
-                    <i class="fa fa-lg fa-trash">Delete</i>
-                    <% end %>
-                  <% else %>
-                    <p><%= link_to edit_item_path(@item), method: :get do %></p>
-                    <i class="fa fa-lg fa-wrench">Edit</i>
-                    <% end %>
-                  <% end %>
-                </div>
-          </div>
+  <div class="col-md-6 col-md-offset-3">
+    <div style="border-bottom-color: <%=  @item.priority.color %>;"
+      <% if @item.completed? %> class="row item" <% else %>
+      <% if @item.priority.priority_level == 3 %> class="row item alert alert-success" <% end %>
+      <% if @item.priority.priority_level == 2 %> class="row item alert alert-warning" <% end %>
+      <% if @item.priority.priority_level == 1 %> class="row item alert alert-danger" <% end %>
+      <% end %>
+    >
+      <div class="col-md-8">
+        <h2 style="<%= 'opacity: 0.2;' if @item.completed? %>" class="item-title" ><%= @item.completed? ? sanitize("<del>#{ @item.title }</del>") : @item.title %></h2>
+        <p style="<%= 'opacity: 0.2;' if @item.completed? %>" class="item-desc item-sub-title"><%= @item.description %></p>
+        <p style="<%= 'opacity: 0.2;' if @item.completed? %>" >Priority: <%=  @item.priority.name %>
+        <p style="opacity: 0.2;" class="item-desc item-sub-title"><%= @item.completed? ? "Closed #{time_ago_in_words(@item.completed_at)} ago" : "Created #{time_ago_in_words(@item.created_at)} ago" %></p>
+      </div>
+      <div class="col-md-2">
+        <p><%= link_to root_path, method: :get do %></p>
+        <i class="fa fa-lg fa-reply">Back</i>
+        <% end %>
+      </div>
+      <div class="col-md-2">
+        <% if @item.completed? %>
+          <p><%= link_to @item, method: :delete, data: { confirm: 'Delete this task?' } do %></p>
+          <i class="fa fa-lg fa-trash">Delete</i>
+          <% end %>
+        <% else %>
+          <p><%= link_to edit_item_path(@item), method: :get do %></p>
+          <i class="fa fa-lg fa-wrench">Edit</i>
+          <% end %>
+        <% end %>
+      </div>
     </div>
+  </div>
 <% else %>
-    <%= render 'layouts/static_landing_page' %>
+  <%= render 'layouts/static_landing_page' %>
 <% end %>

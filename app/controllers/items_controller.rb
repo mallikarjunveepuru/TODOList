@@ -53,10 +53,8 @@ class ItemsController < ApplicationController
       params.require(:item).permit(:title, :description, :priority_id)
     end
 
-
     def show_item
       @item = Item.find(params[:id])
     end
-
 
 end
